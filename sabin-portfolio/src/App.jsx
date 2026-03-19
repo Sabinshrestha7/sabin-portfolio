@@ -40,9 +40,13 @@ function App() {
         <p>
           I am a BSc (Hons) Computing Systems student at Ulster University London
           with a strong interest in software development, front-end design,
-          backend systems, and technology-focused problem solving. I enjoy
-          building practical academic and personal projects while continuously
-          improving my skills.
+          backend systems, and technology-focused problem solving.
+        </p>
+        <br />
+        <p>
+          I enjoy building practical academic and personal projects while
+          continuously improving my skills and preparing for future opportunities
+          in web and software development.
         </p>
       </section>
 
@@ -119,9 +123,9 @@ function App() {
 
       <section id="contact" className="section">
         <h2>Contact</h2>
-        <p>Email: sabinshrest2023@gmail.com</p>
+        <p>Email: <a href="mailto:sabinshrest2023@gmail.com">sabinshrest2023@gmail.com</a></p>
         <p>Location: London, United Kingdom</p>
-        <p>LinkedIn: Add your profile link</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sabin-shrestha-809b5132b/">https://www.linkedin.com/in/sabin-shrestha-809b5132b/</a></p>
 
         <form className="contact-form">
           <input type="text" placeholder="Name" />

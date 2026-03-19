@@ -31,7 +31,7 @@ function App() {
         </div>
 
         <div className="hero-image">
-          <img src="/profile.jpg" alt="Sabin Shrestha" />
+          <img src="/profile.jpeg" alt="Sabin Shrestha" />
         </div>
       </section>
 

@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   User,
   Code2,
   Target,
-  Briefcase,
   GraduationCap,
   Mail,
   MapPin,
@@ -11,7 +11,6 @@ import {
   FolderOpen,
   Send,
   Laptop,
-  Database,
   Blocks,
   Gamepad2,
   Shield,
@@ -36,6 +35,8 @@ function SectionTitle({ title, subtitle }) {
 }
 
 function App() {
+  const [activeInfo, setActiveInfo] = useState("");
+
   return (
     <>
       <nav className="navbar">
@@ -61,7 +62,8 @@ function App() {
         >
           <div className="availability-badge">Available for opportunities</div>
           <h1>
-            Hi, I&apos;m <span>Sabin</span><br />
+            Hi, I&apos;m <span>Sabin</span>
+            <br />
             <span>Shrestha</span>
           </h1>
           <p>
@@ -393,10 +395,38 @@ function App() {
               Analysed a TCP SYN flood attack, identified malicious traffic
               patterns, and documented network security findings.
             </p>
+
             <div className="tech-tags">
-              <span>Wireshark</span>
-              <span>Networking</span>
-              <span>Cybersecurity</span>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo(
+                    "Wireshark is a network packet analysis tool used to inspect and troubleshoot traffic in detail."
+                  )
+                }
+              >
+                Wireshark
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo(
+                    "Networking involves communication between systems, protocols, packets, and traffic analysis."
+                  )
+                }
+              >
+                Networking
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo(
+                    "Cybersecurity focuses on protecting systems, networks, and data from attacks and threats."
+                  )
+                }
+              >
+                Cybersecurity
+              </button>
             </div>
           </div>
 
@@ -407,10 +437,38 @@ function App() {
               Developed an interactive card game with game logic, scoring
               system, and user interaction using Java.
             </p>
+
             <div className="tech-tags">
-              <span>Java</span>
-              <span>OOP</span>
-              <span>Game Logic</span>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo(
+                    "Java is an object-oriented programming language widely used for software and application development."
+                  )
+                }
+              >
+                Java
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo(
+                    "OOP stands for Object-Oriented Programming, a way of structuring code using classes and objects."
+                  )
+                }
+              >
+                OOP
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo(
+                    "Game Logic controls the rules, flow, scoring, and interaction inside a game."
+                  )
+                }
+              >
+                Game Logic
+              </button>
             </div>
           </div>
 
@@ -421,13 +479,48 @@ function App() {
               Built responsive websites and web applications using modern HTML,
               CSS, and JavaScript techniques.
             </p>
+
             <div className="tech-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo("HTML provides the structure and content of a webpage.")
+                }
+              >
+                HTML
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo("CSS controls the styling, layout, and visual design of a webpage.")
+                }
+              >
+                CSS
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveInfo("JavaScript adds interactivity and dynamic behavior to websites.")
+                }
+              >
+                JavaScript
+              </button>
             </div>
           </div>
         </div>
+
+        {activeInfo && (
+          <div className="topic-info-box">
+            <p>{activeInfo}</p>
+            <button
+              type="button"
+              className="close-info"
+              onClick={() => setActiveInfo("")}
+            >
+              Close
+            </button>
+          </div>
+        )}
       </motion.section>
 
       <motion.section
@@ -463,15 +556,15 @@ function App() {
             </div>
 
             <div className="contact-item">
-            <div className="icon-box blue"><Linkedin size={16} /></div>
-            <a
-              href="https://www.linkedin.com/in/sabin-shrestha-809b5132b/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
+              <div className="icon-box blue"><Linkedin size={16} /></div>
+              <a
+                href="https://www.linkedin.com/in/sabin-shrestha-809b5132b/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn Profile
+              </a>
+            </div>
           </div>
 
           <form

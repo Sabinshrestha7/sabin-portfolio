@@ -1,8 +1,45 @@
+import { motion } from "framer-motion";
+import {
+  User,
+  Code2,
+  Target,
+  Briefcase,
+  GraduationCap,
+  Mail,
+  MapPin,
+  Linkedin,
+  FolderOpen,
+  Send,
+  Laptop,
+  Database,
+  Blocks,
+  Gamepad2,
+  Shield,
+} from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 35 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+function SectionTitle({ title, subtitle }) {
+  return (
+    <div className="section-heading">
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+  );
+}
+
 function App() {
   return (
     <>
       <nav className="navbar">
-        <div className="logo">Sabin</div>
+        <div className="logo">SS</div>
         <ul className="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -16,131 +53,445 @@ function App() {
       </nav>
 
       <section id="home" className="hero">
-        <div className="hero-text">
-          <p className="tag">Computing Systems Student</p>
-          <h1>Sabin Shrestha</h1>
-          <h2>Aspiring Developer</h2>
+        <motion.div
+          className="hero-text"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+        >
+          <div className="availability-badge">Available for opportunities</div>
+          <h1>
+            Hi, I&apos;m <span>Sabin</span><br />
+            <span>Shrestha</span>
+          </h1>
           <p>
-            Passionate about software development, modern web design,
-            and solving real-world problems through practical digital solutions.
+            Computing Systems student & aspiring developer crafting front-end
+            and full-stack solutions at Ulster University London.
           </p>
+
           <div className="hero-buttons">
-            <a href="#projects" className="btn primary">View Projects</a>
-            <a href="#contact" className="btn secondary">Contact Me</a>
+            <a href="#projects" className="btn primary">
+              <FolderOpen size={16} />
+              View Projects
+            </a>
+            <a href="#contact" className="btn secondary">
+              <Mail size={16} />
+              Contact Me
+            </a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="hero-image">
+        <motion.div
+          className="hero-image"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
           <img src="/profile.jpeg" alt="Sabin Shrestha" />
-        </div>
+        </motion.div>
       </section>
 
-      <section id="about" className="section">
-        <h2>About Me</h2>
-        <p>
-          I am a BSc (Hons) Computing Systems student at Ulster University London
-          with a strong interest in software development, front-end design,
-          backend systems, and technology-focused problem solving.
-        </p>
-        <br />
-        <p>
-          I enjoy building practical academic and personal projects while
-          continuously improving my skills and preparing for future opportunities
-          in web and software development.
-        </p>
-      </section>
+      <motion.section
+        id="about"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="About Me"
+          subtitle="Get to know me a little better"
+        />
 
-      <section id="education" className="section">
-        <h2>Education</h2>
-        <div className="card">
-          <h3>BSc (Hons) in Computing Systems</h3>
-          <p>Ulster University London | February 2024 – Present</p>
+        <div className="about-text">
+          <p>
+            I&apos;m Sabin Shrestha, currently pursuing a BSc (Hons) in
+            Computing Systems at Ulster University London. My journey into tech
+            started from a deep curiosity about how software shapes everyday life.
+          </p>
+          <p>
+            I enjoy building both front-end and back-end systems, and I&apos;m
+            constantly pushing myself to learn new frameworks and tools. Outside
+            of academics, my diverse work experience has taught me teamwork,
+            discipline, and adaptability — qualities I bring into every project
+            I build.
+          </p>
         </div>
-        <div className="card">
-          <h3>Higher Secondary Education in Science</h3>
-          <p>Kathmandu Bernhardt College, Nepal | 2019 – 2021</p>
-          <p>Academic honors</p>
-        </div>
-      </section>
 
-      <section id="experience" className="section">
-        <h2>Work Experience</h2>
-        <div className="card">
-          <h3>Pizza Chef</h3>
-          <p>Japes, London | Jan 2024 – Present</p>
-        </div>
-        <div className="card">
-          <h3>Bartender</h3>
-          <p>Nepal Bar Training Academy | Apr 2022 – Oct 2023</p>
-        </div>
-        <div className="card">
-          <h3>Barista</h3>
-          <p>The Coffee Beans, Kathmandu | Sep 2021 – Feb 2022</p>
-        </div>
-      </section>
-
-      <section id="skills" className="section">
-        <h2>Skills</h2>
-        <div className="grid">
-          <div className="card">
-            <h3>Technical Skills</h3>
-            <p>Python, HTML, CSS, JavaScript, Basic Backend Development</p>
+        <div className="grid three-col">
+          <div className="card feature-card">
+            <div className="icon-box pink"><User size={18} /></div>
+            <h3>Who I Am</h3>
+            <p>
+              A driven computing student at Ulster University London,
+              passionate about using technology to solve real-world problems.
+            </p>
           </div>
-          <div className="card">
-            <h3>Professional Skills</h3>
-            <p>Problem Solving, Teamwork & Communication, Time Management</p>
+
+          <div className="card feature-card">
+            <div className="icon-box blue"><Code2 size={18} /></div>
+            <h3>What I Do</h3>
+            <p>
+              I build front-end interfaces and explore full-stack development
+              using Python, JavaScript, HTML, and CSS.
+            </p>
+          </div>
+
+          <div className="card feature-card">
+            <div className="icon-box pink"><Target size={18} /></div>
+            <h3>My Goal</h3>
+            <p>
+              To grow into a skilled software developer and contribute to
+              meaningful projects in technology and cybersecurity.
+            </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="services" className="section">
-        <h2>Services</h2>
-        <div className="grid">
-          <div className="card">Front-End Web Development</div>
-          <div className="card">Python Programming Support</div>
-          <div className="card">Basic Full-Stack Projects</div>
-          <div className="card">Academic / Small-Scale Project Assistance</div>
+      <motion.section
+        id="education"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="Education"
+          subtitle="My academic journey"
+        />
+
+        <div className="timeline">
+          <div className="timeline-item">
+            <div className="timeline-dot pink"></div>
+            <div className="timeline-card card">
+              <span className="timeline-date">Feb 2024 - Present</span>
+              <h3>BSc (Hons) Computing Systems</h3>
+              <h4>Ulster University London</h4>
+              <p>
+                Studying core computing concepts including software development,
+                networking, databases, and cybersecurity fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div className="timeline-item">
+            <div className="timeline-dot blue"></div>
+            <div className="timeline-card card">
+              <span className="timeline-date">2019 - 2021</span>
+              <h3>Higher Secondary Education – Science</h3>
+              <h4>Kathmandu Bernhardt College, Nepal</h4>
+              <p>
+                Completed with academic honors, building a strong analytical
+                foundation in mathematics and science.
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="projects" className="section">
-        <h2>Projects</h2>
-        <div className="grid">
-          <div className="card">
+      <motion.section
+        id="experience"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="Work Experience"
+          subtitle="Transferable skills forged through diverse roles"
+        />
+
+        <div className="timeline">
+          <div className="timeline-item">
+            <div className="timeline-dot pink"></div>
+            <div className="timeline-card card">
+              <span className="timeline-date">Jan 2024 - Present</span>
+              <h3>Pizza Chef</h3>
+              <h4>Japes, London</h4>
+              <ul>
+                <li>Time management & multitasking in fast-paced environment</li>
+                <li>Team collaboration and communication</li>
+                <li>Consistent quality delivery under pressure</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="timeline-item">
+            <div className="timeline-dot pink"></div>
+            <div className="timeline-card card">
+              <span className="timeline-date">Apr 2022 - Oct 2023</span>
+              <h3>Bartender</h3>
+              <h4>Nepal Bar Training Academy</h4>
+              <ul>
+                <li>Customer service & interpersonal skills</li>
+                <li>Attention to detail and problem-solving</li>
+                <li>Working efficiently under pressure</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="timeline-item">
+            <div className="timeline-dot blue"></div>
+            <div className="timeline-card card">
+              <span className="timeline-date">Sep 2021 - Feb 2022</span>
+              <h3>Barista</h3>
+              <h4>The Coffee Beans, Kathmandu</h4>
+              <ul>
+                <li>Adaptability and quick learning</li>
+                <li>Customer-focused mindset</li>
+                <li>Operational efficiency and workflow management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        id="skills"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="Skills"
+          subtitle="Technical abilities & professional strengths"
+        />
+
+        <div className="skills-layout">
+          <div className="skills-bars">
+            <h3 className="mini-heading">Technical Skills</h3>
+
+            <div className="skill-row">
+              <div className="skill-top">
+                <span>Python</span>
+                <span>75%</span>
+              </div>
+              <div className="skill-bar"><div className="fill fill-75"></div></div>
+            </div>
+
+            <div className="skill-row">
+              <div className="skill-top">
+                <span>HTML</span>
+                <span>85%</span>
+              </div>
+              <div className="skill-bar"><div className="fill fill-85"></div></div>
+            </div>
+
+            <div className="skill-row">
+              <div className="skill-top">
+                <span>CSS</span>
+                <span>80%</span>
+              </div>
+              <div className="skill-bar"><div className="fill fill-80"></div></div>
+            </div>
+
+            <div className="skill-row">
+              <div className="skill-top">
+                <span>JavaScript</span>
+                <span>70%</span>
+              </div>
+              <div className="skill-bar"><div className="fill fill-70"></div></div>
+            </div>
+
+            <div className="skill-row">
+              <div className="skill-top">
+                <span>Backend Development</span>
+                <span>45%</span>
+              </div>
+              <div className="skill-bar"><div className="fill fill-45"></div></div>
+            </div>
+          </div>
+
+          <div className="skills-tags">
+            <h3 className="mini-heading">Professional Skills</h3>
+            <div className="tags-wrap">
+              <span className="tag-pill">Problem Solving</span>
+              <span className="tag-pill">Teamwork & Communication</span>
+              <span className="tag-pill">Time Management</span>
+              <span className="tag-pill">Adaptability</span>
+              <span className="tag-pill">Attention to Detail</span>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        id="services"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="Services"
+          subtitle="What I can help you with"
+        />
+
+        <div className="grid two-col">
+          <div className="card service-card">
+            <div className="icon-box blue"><Laptop size={18} /></div>
+            <h3>Front-End Web Development</h3>
+            <p>
+              Building responsive, visually appealing websites and interfaces
+              using HTML, CSS, and JavaScript.
+            </p>
+          </div>
+
+          <div className="card service-card">
+            <div className="icon-box pink"><Code2 size={18} /></div>
+            <h3>Python Programming Support</h3>
+            <p>
+              Simple backend functionality, automation scripts, and
+              problem-solving tasks using Python.
+            </p>
+          </div>
+
+          <div className="card service-card">
+            <div className="icon-box pink"><Blocks size={18} /></div>
+            <h3>Basic Full-Stack Projects</h3>
+            <p>
+              Combining front-end interfaces with backend logic to deliver
+              complete, functional applications.
+            </p>
+          </div>
+
+          <div className="card service-card">
+            <div className="icon-box yellow"><GraduationCap size={18} /></div>
+            <h3>Academic Project Assistance</h3>
+            <p>
+              Helping design, build, and improve small-scale applications and
+              student projects.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        id="projects"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="Projects"
+          subtitle="A selection of my academic and personal work"
+        />
+
+        <div className="grid three-col">
+          <div className="card project-card top-blue">
+            <div className="icon-box pink"><Shield size={18} /></div>
             <h3>Wireshark Network Analysis</h3>
-            <p>Analysed a TCP SYN flood attack and identified malicious traffic.</p>
+            <p>
+              Analysed a TCP SYN flood attack, identified malicious traffic
+              patterns, and documented network security findings.
+            </p>
+            <div className="tech-tags">
+              <span>Wireshark</span>
+              <span>Networking</span>
+              <span>Cybersecurity</span>
+            </div>
           </div>
-          <div className="card">
+
+          <div className="card project-card top-pink">
+            <div className="icon-box pink"><Gamepad2 size={18} /></div>
             <h3>Java Card Game</h3>
-            <p>Developed a game with logic and user interaction.</p>
+            <p>
+              Developed an interactive card game with game logic, scoring
+              system, and user interaction using Java.
+            </p>
+            <div className="tech-tags">
+              <span>Java</span>
+              <span>OOP</span>
+              <span>Game Logic</span>
+            </div>
           </div>
-          <div className="card">
+
+          <div className="card project-card top-blue">
+            <div className="icon-box blue"><Code2 size={18} /></div>
             <h3>Web Development Projects</h3>
-            <p>Built responsive websites using HTML, CSS, and JavaScript.</p>
+            <p>
+              Built responsive websites and web applications using modern HTML,
+              CSS, and JavaScript techniques.
+            </p>
+            <div className="tech-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="contact" className="section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:sabinshrest2023@gmail.com">sabinshrest2023@gmail.com</a></p>
-        <p>Location: London, United Kingdom</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/sabin-shrestha-809b5132b/">https://www.linkedin.com/in/sabin-shrestha-809b5132b/</a></p>
+      <motion.section
+        id="contact"
+        className="section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <SectionTitle
+          title="Contact"
+          subtitle="Let’s connect and build something together"
+        />
 
-        <form className="contact-form">
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="text" placeholder="Subject" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit" className="btn primary">Send Message</button>
-        </form>
-      </section>
+        <div className="contact-layout">
+          <div className="contact-info">
+            <p>
+              I&apos;m open to project collaborations, freelance opportunities,
+              and connecting with fellow developers. Feel free to reach out.
+            </p>
+
+            <div className="contact-item">
+              <div className="icon-box pink"><Mail size={16} /></div>
+              <a href="mailto:sabinshrest2023@gmail.com">
+                sabinshrest2023@gmail.com
+              </a>
+            </div>
+
+            <div className="contact-item">
+              <div className="icon-box pink"><MapPin size={16} /></div>
+              <span>London, United Kingdom</span>
+            </div>
+
+            <div className="contact-item">
+            <div className="icon-box blue"><Linkedin size={16} /></div>
+            <a
+              href="https://www.linkedin.com/in/sabin-shrestha-809b5132b/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn Profile
+            </a>
+          </div>
+          </div>
+
+          <form className="contact-form card">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <input type="text" placeholder="Subject" />
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit" className="btn primary">
+              <Send size={16} />
+              Send Message
+            </button>
+          </form>
+        </div>
+      </motion.section>
 
       <footer className="footer">
-        <p>© 2026 Sabin Shrestha. All rights reserved.</p>
+        <p>© 2026 <span>Sabin Shrestha</span>. All rights reserved.</p>
       </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

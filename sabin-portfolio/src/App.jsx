@@ -474,11 +474,16 @@ function App() {
           </div>
           </div>
 
-          <form className="contact-form card">
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <input type="text" placeholder="Subject" />
-            <textarea placeholder="Your Message"></textarea>
+          <form
+            className="contact-form card"
+            action="https://formspree.io/f/xvzwlryn"
+            method="POST"
+          >
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="hidden" name="_subject" value="New portfolio message from Sabin's website" />
             <button type="submit" className="btn primary">
               <Send size={16} />
               Send Message
